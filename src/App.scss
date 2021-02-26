@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah");
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-body{
+body {
   margin: 0;
   padding: 0;
 }
@@ -24,7 +24,7 @@ body{
   .description {
     width: 40%;
     margin: 300px auto;
-    font-family: 'Gloria Hallelujah';
+    font-family: "Gloria Hallelujah";
     line-height: 1.5;
     text-align: center;
     letter-spacing: 1px;
@@ -61,10 +61,10 @@ body{
   @media (max-width: 991px) {
     margin-left: auto;
     margin-right: auto;
-
   }
-  @media(max-width:768px){
-height: 75%;
+  @media (max-width: 768px) {
+    height: 75%;
+    width: 100%;
   }
 
   .light {
@@ -82,7 +82,7 @@ height: 75%;
       width: 410px;
       height: 0;
       border-right: 150px solid transparent;
-      border-bottom: 370px solid lighten(#faedf3, 5px);
+      border-bottom: 360px solid lighten(#faedf3, 5px);
       border-left: 150px solid transparent;
       opacity: 0.3;
       transition: all 1s linear;
@@ -106,131 +106,288 @@ height: 75%;
       z-index: 3;
       width: 70px * 2;
       height: 70px;
-      content: '';
+      content: "";
       background: #6c3666;
       border-top-left-radius: 100px * 2;
       border-top-right-radius: 100px * 2;
       transform: translate(-48%, 0);
     }
   }
-
-  .desktop {
-    position: absolute;
-    top: 11rem;
-    left: 50%;
-    width: 300px;
-    height: 170px;
-    background: #ddd;
-    border: 10px solid #666;
-    border-radius: 5px;
-    transform: translate(-50%, 11rem);
-
-    &::before {
-      position: absolute;
-      bottom: -40px;
-      left: -9px;
-      width: 298px;
-      height: 30px;
-      content: '';
-      background: #fff;
-      border-bottom-right-radius: 10px;
-      border-bottom-left-radius: 10px;
+  .laptop {
+  
+    width: 350px;
+    height: 200px;
+margin-left: auto;
+margin-right:auto;
+margin-top:11rem;
+    perspective: 2400px;
+    perspective-origin: 50% 100%;
+    @media screen and (max-width: 1000px) {
+      width: 320px;
+      height: 196px;
     }
-    &::after {
+    &-block {
       position: absolute;
-      bottom: -5rem;
-      left: 30%;
-      width: 125px;
-      height: 0;
-      content: '';
-      border-right: 20px solid transparent;
-      border-bottom: 40px solid #666;
-      border-left: 20px solid transparent;
-    }
-    .content {
+      z-index: 6;
+      top: 0;
+      left: 0;
       width: 100%;
-      height:100%;
-      padding: 10px;
-      margin: 0 0 0 0;
-      overflow: hidden;
-      font-size: 0.5em;
-      color: #6c3666;
-      background: inherit;
-    }
-  
-    ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      -o-animation: laptop 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-      -moz-animation: laptop 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-      -webkit-animation: laptop 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-      animation: laptop 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-      li{
-        padding: 0;
-        height: 6px;
-        margin: 0 0 5px 0;
-        background: #6c3666;
-        border-color: #6c3666;
+      height: 16px;
+      border-radius: 16px 16px 0 0;
+      background-image: linear-gradient(90deg, #e5edf6 23%, #d2d9e6 91%);
+      transform: scale(0);
+      transition: all ease 0.32s;
+      &:after {
+        content: "";
+        background-color: #fff;
+        bottom: -3px;
+        width: 100%;
+        height: 3px;
+        position: absolute;
       }
     }
-  
-    @keyframes laptop {
-      20% {
-        transform: translateY(-50%);
+    &-top {
+      position: relative;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      height: calc(100% - 32px);
+      border-radius: 16px;
+      background-color: #e0e8f2;
+      box-sizing: border-box;
+      transform-style: preserve-3d;
+      transform-origin: 50% 100%;
+      transform: translate3d(0, 0, 0) rotateX(0deg);
+      transition: all ease 0.32s;
+      &:before {
+        position: absolute;
+        z-index: 2;
+        content: "";
+        width: 100%;
+        height: 40px;
+        left: 0;
+        bottom: 0;
+        background-color: inherit;
       }
-      40%,
-      60% {
-        transform: translateY(-80%);
-      }
-      80% {
-        transform: translateY(0);
+      div {
+        position: absolute;
+        z-index: 3;
+        &:first-child {
+          left: 6px;
+          top: 4px;
+          width: calc(100% - 12px);
+          height: calc(100% - 6px);
+          background-color: transparent;
+          border: 1px solid rgba(#b0c8d8, 0.2);
+          border-radius: 16px 16px 0 0;
+          border-bottom: 0;
+        }
+        &:last-child {
+          background-color: #fff;
+          top: 24px;
+          left: 24px;
+          width: calc(100% - 50px);
+          height: calc(100% - 40px);
+          border-radius: 4px 4px 0 0;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
       }
     }
-  
-   
-  
-    @-moz-keyframes laptop {
-      20% {
-        -moz-transform: translateY(-50%);
-      }
-      40%,
-      60% {
-        -moz-transform: translateY(-80%);
-      }
-      80% {
-        -moz-transform: translateY(0);
-      }
-    }
-  
-    @-webkit-keyframes laptop {
-      20% {
-        -webkit-transform: translateY(-50%);
-      }
-      40%,
-      60% {
-        -webkit-transform: translateY(-80%);
-      }
-      80% {
-        -webkit-transform: translateY(0);
+    &-bottom {
+      & > div {
+        width: 100%;
+        &:first-child {
+          position: relative;
+          height: 32px;
+          @media screen and (max-width: 1000px) {
+            height: 24px;
+          }
+          & > div {
+            width: 100%;
+            &:first-child {
+              position: relative;
+              z-index: 2;
+              height: 20px;
+              background-color: #d2d9e6;
+              border-radius: 4px;
+              overflow: hidden;
+              @media screen and (max-width: 1000px) {
+                height: 12px;
+              }
+              div {
+                &:first-child {
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 50%;
+                  height: 100%;
+                  background-image: linear-gradient(90deg, #e5edf6 23%, #d2d9e6 91%);
+                  border-radius: 3px;
+                }
+                &:nth-child(2) {
+                  transform: rotate(-180deg);
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+                  width: 50%;
+                  height: 100%;
+                  background-image: linear-gradient(90deg, #e5edf6 23%, #d2d9e6 50%);
+                  border-radius: 3px;
+                }
+                &:last-child {
+                  position: absolute;
+                  width: 30%;
+                  height: 200%;
+                  background-color: #e8eff8;
+                  border-radius: 56px;
+                  bottom: 0;
+                  left: 50%;
+                  margin-left: -15%;
+                  box-shadow: inset -5px 0 3px 0 #f4f7fa, inset 9px 0 5px 0 rgba(0, 0, 0, 0.14);
+                }
+              }
+            }
+            &:last-child {
+              position: absolute;
+              z-index: 1;
+              bottom: 0;
+              left: 0;
+              height: 100%;
+              background-color: #cfd3e2;
+              border-radius: 38px;
+            }
+          }
+        }
       }
     }
   }
-  
+  .laptop--closed {
+    .laptop-block {
+      top: calc(100% - 50px);
+      transform: scale(1);
+    }
+    .laptop-top {
+      overflow: auto;
+      transform: translate3d(0,0,0) rotateX(-90deg);
+    } 
+  }
 
-  
+  // .desktop {
+  //   position: absolute;
+  //   top: 11rem;
+  //   left: 50%;
+  //   width: 300px;
+  //   height: 170px;
+  //   background: #ddd;
+  //   border: 10px solid #666;
+  //   border-radius: 5px;
+  //   transform: translate(-50%, 11rem);
+
+  //   &::before {
+  //     position: absolute;
+  //     bottom: -40px;
+  //     left: -9px;
+  //     width: 298px;
+  //     height: 30px;
+  //     content: '';
+  //     background: #fff;
+  //     border-bottom-right-radius: 10px;
+  //     border-bottom-left-radius: 10px;
+  //   }
+  //   &::after {
+  //     position: absolute;
+  //     bottom: -5rem;
+  //     left: 30%;
+  //     width: 125px;
+  //     height: 0;
+  //     content: '';
+  //     border-right: 20px solid transparent;
+  //     border-bottom: 40px solid #666;
+  //     border-left: 20px solid transparent;
+  //   }
+  //   .content {
+  //     width: 100%;
+  //     height:100%;
+  //     padding: 10px;
+  //     margin: 0 0 0 0;
+  //     overflow: hidden;
+  //     font-size: 0.5em;
+  //     color: #6c3666;
+  //     background: inherit;
+  //   }
+
+  //   ul {
+  //     padding: 0;
+  //     margin: 0;
+  //     list-style: none;
+  //     -o-animation: laptop 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  //     -moz-animation: laptop 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  //     -webkit-animation: laptop 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  //     animation: laptop 4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  //     li{
+  //       padding: 0;
+  //       height: 6px;
+  //       margin: 0 0 5px 0;
+  //       background: #6c3666;
+  //       border-color: #6c3666;
+  //     }
+  //   }
+
+  //   @keyframes laptop {
+  //     20% {
+  //       transform: translateY(-50%);
+  //     }
+  //     40%,
+  //     60% {
+  //       transform: translateY(-80%);
+  //     }
+  //     80% {
+  //       transform: translateY(0);
+  //     }
+  //   }
+
+  //   @-moz-keyframes laptop {
+  //     20% {
+  //       -moz-transform: translateY(-50%);
+  //     }
+  //     40%,
+  //     60% {
+  //       -moz-transform: translateY(-80%);
+  //     }
+  //     80% {
+  //       -moz-transform: translateY(0);
+  //     }
+  //   }
+
+  //   @-webkit-keyframes laptop {
+  //     20% {
+  //       -webkit-transform: translateY(-50%);
+  //     }
+  //     40%,
+  //     60% {
+  //       -webkit-transform: translateY(-80%);
+  //     }
+  //     80% {
+  //       -webkit-transform: translateY(0);
+  //     }
+  //   }
+  // }
 
   .coffee {
     position: absolute;
     top: 136px;
-    top: 32rem;
+    top: 31.5rem;
     width: 75px;
     height: 80px;
     background-color: #c12f81;
     border: 3px solid #666;
     border-radius: 0 0 10px 10px;
     left: 0;
-    @media(max-width:991px){
+    @media (max-width: 991px) {
       display: none;
     }
     .eyes {
@@ -251,7 +408,7 @@ height: 75%;
           bottom: 8px;
           width: 9px;
           height: 9px;
-          content: '';
+          content: "";
           background: #000;
           border-radius: 50%;
         }
@@ -261,7 +418,7 @@ height: 75%;
     &::after,
     &::before {
       position: absolute;
-      content: '';
+      content: "";
     }
 
     &::after {
@@ -289,7 +446,7 @@ height: 75%;
   }
   .desk {
     position: absolute;
-    top: 18.5rem;
+    top: 18rem;
     left: 40%;
     width: 600px;
     height: 2px;
@@ -306,7 +463,7 @@ height: 75%;
       left: 102%;
       width: 18px;
       height: 3px;
-      content: '';
+      content: "";
       background-color: #fffdff;
       border-radius: 50px;
     }
@@ -317,7 +474,7 @@ height: 75%;
       left: -10%;
       width: 35px;
       height: 3px;
-      content: '';
+      content: "";
       background-color: #fffdff;
       border-radius: 50px;
     }

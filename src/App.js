@@ -7,7 +7,7 @@ import { Github, Twitter, Codepen, Linkdin } from './svg'
 function App() {
 
   const [ligth, setLight] = useState(true)
-
+  const [open, setOpen] = useState(true)
   useEffect(() => eyeLead())
   const eyeLead = () => {
     const wrapper = document.querySelector('.wrapper')
@@ -33,10 +33,14 @@ function App() {
         style=
         {ligth ? {
           backgroundColor: '#2f2c43'
-        } : { backgroundColor: '#fbc8d2' }}
+        } : { backgroundColor: '#2f2c43' }}
 
       >
-        <div className="vector" onClick={() => setLight(!ligth)}>
+        
+        <div className="vector" onClick={() =>{
+           setLight(!ligth)
+           setOpen(!open)
+        }}>
           <div className="light">
             {
               ligth && <div className="light-on"> </div>
@@ -44,8 +48,26 @@ function App() {
 
             <div className="bolb"> </div>
           </div>
+          <div className={`laptop ${!open ? 'laptop--closed' : ''}`}>
+    <div className="laptop-block"></div>
+    <div className="laptop-top">
+      <div></div>
+      <div></div>
+    </div>
+    <div className="laptop-bottom">
+      <div>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div></div>
+      </div>
+      <div></div>
+    </div>
+  </div>
 
-          <div className="desktop">
+          {/* <div className="desktop">
             
           <div class="content">
           <ul>
@@ -71,7 +93,7 @@ function App() {
             <li style={{width: '50%'}}></li>
           </ul>
         </div>
-             </div>
+             </div> */}
           <div className="desk"></div>
           <div className="coffee">
             <div className="eyes">
