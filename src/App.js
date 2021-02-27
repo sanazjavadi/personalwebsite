@@ -8,7 +8,7 @@ function App() {
 
   const [ligth, setLight] = useState(true)
   const [open, setOpen] = useState(true)
-  const [clicked, setClicked]= useState(false)
+  const [clicked, setClicked] = useState(false)
   useEffect(() => eyeLead())
 
   const eyeLead = () => {
@@ -38,7 +38,7 @@ function App() {
       } : { backgroundColor: '#2f2c43' }}
 
     >
-      
+
 
       <div className="vector" onClick={() => {
         setLight(!ligth)
@@ -60,29 +60,29 @@ function App() {
             </div>
           </div>
           <div className={`laptop ${!open ? 'laptop--closed' : ''}`}>
-            
+
             <div className="laptop-block">
-             
+
             </div>
             <div className="laptop-top">
-              
+
               <div>
-                
+
               </div>
               <div>
                 <ul>
                   <li></li>
                   <li></li>
-                  <li style={{width:'50%'}}></li>
+                  <li style={{ width: '50%' }}></li>
                   <li></li>
-                  <li style={{width:'70%'}}></li>
+                  <li style={{ width: '70%' }}></li>
                   <li></li>
                   <li></li>
-                  <li style={{width:'50%'}}></li>
+                  <li style={{ width: '50%' }}></li>
                   <li></li>
                   <li></li>
                 </ul>
-               </div>
+              </div>
             </div>
             <div className="laptop-bottom">
               <div>
@@ -103,41 +103,54 @@ function App() {
         <div className="desk"></div>
 
       </div>
-      <button class={`toggle ${clicked && 'clicked'}`} id="toggle" onClick={()=> {
+      <button class={`toggle ${clicked && 'clicked'}`} id="toggle" onClick={() => {
         setClicked(!clicked)
         setOpen(!open)
         setLight(!ligth)
       }}></button>
       <div className="description">
-     
+
         <p>
           Hi,I'm sanaz I like making fun,interactive things with code.
       </p>
         <div className="social">
           <span>
+            <a href="https://github.com/sanazjavadi/" >
 
-            <Github width="30" height="30" />
+              <Github width="30" height="30" />
 
-          </span>
-          <span>
+            </a>
 
-            <Linkdin width="30" height="30" />
-
-          </span>
-          <span>
-
-            <Codepen width="30" height="30" />
 
           </span>
           <span>
+            <a href="
+            http://linkedin.com/in/sanaz-javadi-56209a193">  
+             <Linkdin width="30" height="30" />
+            </a>
 
-            <Twitter width="30" height="30" />
+
+          </span>
+          <span>
+            <a href="https://codepen.io/sanazjavadi">
+              <Codepen width="30" height="30" />
+            </a>
+
+
+          </span>
+          <span>
+<a href="https://twitter.com/sanaz_jvd
+">
+
+<Twitter width="30" height="30" />
+</a>
+           
 
           </span>
         </div>
-      
+
       </div>
-     
+
     </div >
 
   )
