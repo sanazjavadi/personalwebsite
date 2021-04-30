@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import './App.scss';
 
 import { Github, Twitter, Codepen, Linkdin } from './svg'
@@ -9,33 +9,36 @@ function App() {
   const [ligth, setLight] = useState(true)
   const [open, setOpen] = useState(true)
   const [clicked, setClicked] = useState(false)
-  useEffect(() => eyeLead())
+  const [Eye1, setLeftEye] = useState()
+  const [Eye2, setrightEye] = useState()
+  const leftEye = useRef()
+  const rightEye = useRef()
+  
 
-  const eyeLead = () => {
-    const wrapper = document.querySelector('.wrapper')
-    wrapper.addEventListener('mousemove', (e) => {
-      const eye = document.querySelector('.eye')
-      const eye2 = document.querySelector('.eye2')
-      const x = eye.getBoundingClientRect().left
-      const x2 = eye2.getBoundingClientRect().left
-      const y = eye.getBoundingClientRect().top
-      const y2 = eye2.getBoundingClientRect().top
+  const eyeLead = (e) => {
+   
+      const x = leftEye.current.getBoundingClientRect().left
+      const x2 = rightEye.current.getBoundingClientRect().left
+      const y = leftEye.current.getBoundingClientRect().top
+      const y2 = rightEye.current.getBoundingClientRect().top
       const rad = Math.atan2(e.pageX - x, e.pageY - y)
       const rad2 = Math.atan2(e.pageX - x2, e.pageY - y2)
       const rotationDegrees = rad * (180 / Math.PI) * -1 + 180
       const rotationDegrees2 = rad2 * (180 / Math.PI) * -1 + 180
-      eye.style.transform = `rotate(${rotationDegrees}deg)`
-      eye2.style.transform = `rotate(${rotationDegrees2}deg)`
-    })
+     setLeftEye({transform: `rotate(${rotationDegrees}deg)`})
+     setrightEye({transform: `rotate(${rotationDegrees2}deg)`})
+  
+   
   }
   return (
 
     <div
       className="wrapper"
+      onMouseMove={eyeLead}
       style=
       {ligth ? {
         backgroundColor: '#2f2c43'
-      } : { backgroundColor: '#2f2c43' }}
+      } : { backgroundColor: '#c3aed6' }}
 
     >
 
@@ -55,8 +58,8 @@ function App() {
         <div className="workspace">
           <div className="coffee">
             <div className="eyes">
-              <div className="eye"></div>
-              <div className="eye eye2"></div>
+              <div className="eye" ref={leftEye} style={Eye1}></div>
+              <div className="eye eye2" ref={rightEye} style={Eye2}></div>
             </div>
           </div>
           <div className={`laptop ${!open ? 'laptop--closed' : ''}`}>
@@ -101,7 +104,10 @@ function App() {
 
 
         <div className="desk"></div>
+  <p className="ps"> 
+    P.S :
 
+    {` No svg No image Just pure Css`}</p>
       </div>
       <button class={`toggle ${clicked && 'clicked'}`} id="toggle" onClick={() => {
         setClicked(!clicked)
@@ -111,8 +117,10 @@ function App() {
       <div className="description">
 
         <p>
-          Hi,I'm sanaz I like making fun,interactive things with code.
+          Hi,I'm sanaz I like making fun,
+          interactive things with code.
       </p>
+    
         <div className="social">
           <span>
             <a href="https://github.com/sanazjavadi/" >
@@ -125,8 +133,8 @@ function App() {
           </span>
           <span>
             <a href="
-            http://linkedin.com/in/sanaz-javadi-56209a193">  
-             <Linkdin width="30" height="30" />
+            http://linkedin.com/in/sanaz-javadi-56209a193">
+              <Linkdin width="30" height="30" />
             </a>
 
 
@@ -139,12 +147,12 @@ function App() {
 
           </span>
           <span>
-<a href="https://twitter.com/sanaz_jvd
+            <a href="https://twitter.com/sanaz_jvd
 ">
 
-<Twitter width="30" height="30" />
-</a>
-           
+              <Twitter width="30" height="30" />
+            </a>
+
 
           </span>
         </div>
